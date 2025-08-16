@@ -257,10 +257,11 @@
 
 .error-count.clickable {
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 4px 4px 4px 4px; /* 上 右 下 左，左边距设为4px */
   border-radius: 4px;
   transition: all 0.2s ease;
   opacity: 0.8;
+  margin-left: 0; /* 设置为0 */
 }
 
 .error-count.clickable:hover {

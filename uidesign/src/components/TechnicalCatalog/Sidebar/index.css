@@ -1,11 +1,11 @@
 /* Sidebar组件样式 */
 .sidebar {
-  grid-area: sidebar;
   background-color: #ffffff;
   padding-top: 10px;
-  min-height: calc(100vh - 70px); /* 至少100vh减去header高度 */
-  min-width: 208px;
-  overflow: hidden;
+  width: 208px; /* 固定宽度 */
+  height: 100%; /* 占据layout-body的全部高度 */
+  overflow-y: auto; /* 允许垂直滚动 */
+  flex-shrink: 0; /* 防止sidebar被压缩 */
 }
 
 .sidebar-item {

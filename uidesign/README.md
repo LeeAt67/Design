@@ -1,134 +1,142 @@
-# 技术标目录组件
+# 技术文档管理系统
 
-基于原始 HTML、CSS、JavaScript 文件创建的 React 组件集合，实现了技术标目录的完整功能。
+基于 React 18 + react-router-dom 开发的单页面应用(SPA)，实现技术文档的创建、管理和协作功能。
 
-## 组件结构
+## 🚀 项目特性
+
+- **SPA 架构**: 使用 react-router-dom 实现单页面应用，无刷新页面切换
+- **响应式布局**: 固定 Header 和 Sidebar，主内容区域动态切换
+- **动态面包屑**: 根据当前路由自动更新 Header 中的导航路径
+- **模块化组件**: 每个页面独立组件，便于维护和扩展
+
+## 📋 页面功能
+
+### 🗂️ 项目清单 (`/project-list`)
+
+- **Header 显示**: 工作台 / 项目清单
+- **主要功能**:
+  - 项目列表展示（网格布局）
+  - 创建新项目（模态框）
+  - 项目状态管理（进行中、已完成、待开始）
+  - 项目编辑和删除
+  - 响应式卡片设计
+
+### ⚡ 一键生成 (`/one-generate`)
+
+- **Header 显示**: 工作台 / 一键生成
+- **主要功能**:
+  - 文档模板选择（API 文档、用户手册、技术规范、快速指南）
+  - 文档配置表单（标题、描述、语言、选项）
+  - 生成进度展示
+  - 模拟文档生成流程
+
+### ⚙️ 高级配置 (`/highly-config`)
+
+- **Header 显示**: 工作台 / 高级配置
+- **主要功能**:
+  - 技术目录管理（TechnicalCatalog 组件）
+  - 章节结构编辑
+  - 内容编写和管理
+
+### 📚 知识库 (`/knowledge-base`)
+
+- **Header 显示**: 工作台 / 知识库
+- **主要功能**:
+  - 文档分类管理（API 文档、教程指南、技术规范等）
+  - 搜索功能（标题、内容、标签）
+  - 视图模式切换（网格/列表）
+  - 文档状态管理（已发布/草稿）
+  - 文档操作（查看、编辑、分享）
+
+### 👤 用户设置 (`/user-setting`)
+
+- **Header 显示**: 工作台 / 用户设置
+- **主要功能**:
+  - 个人信息管理（头像、用户名、邮箱、手机）
+  - 偏好设置（语言、主题、默认模板、自动保存）
+  - 安全设置（双因素认证、会话超时、密码管理）
+  - 通知设置（邮件、推送、短信）
+
+## 🏗️ 技术架构
+
+### 路由系统
 
 ```
-TechnicalCatalog/
-├── TechnicalCatalog.jsx      # 主组件
-├── TechnicalCatalog.css      # 样式文件
-├── Header.jsx                # 顶部导航栏
-├── Sidebar.jsx               # 侧边栏
-├── StepsIndicator.jsx        # 步骤指示器
-├── ContentBox.jsx            # 内容容器
-├── DirectoryList.jsx         # 目录列表
-├── ContextMenu.jsx           # 右键菜单
-├── ChapterSelectionModal.jsx # 章节选择弹窗
-├── WritingModal.jsx          # 编写界面弹窗
-└── README.md                 # 说明文档
+/                    → 重定向到 /project-list
+/project-list        → 项目清单页面
+/one-generate        → 一键生成页面
+/highly-config       → 高级配置页面
+/knowledge-base      → 知识库页面
+/user-setting        → 用户设置页面
 ```
 
-## 主要功能
+### 组件结构
 
-### 1. 章节管理
-
-- 支持章节、节、小节的层级结构
-- 可展开/折叠章节
-- 章节状态显示（完成、草稿、错误）
-- 章节内容预览
-
-### 2. 交互功能
-
-- 点击章节描述激活选中状态
-- 右键菜单支持删除、设置、新增子章节
-- 章节内容编写和保存
-- 支持草稿和正式版本保存
-
-### 3. 界面特性
-
-- 响应式设计
-- 美观的 UI 界面
-- 丰富的交互反馈
-- 本地存储支持
-
-## 使用方法
-
-### 基本使用
-
-```jsx
-import TechnicalCatalog from "./components/TechnicalCatalog/TechnicalCatalog";
-
-function App() {
-  return <TechnicalCatalog />;
-}
+```
+src/
+├── components/
+│   ├── Layout/           # 主布局组件
+│   └── TechnicalCatalog/ # 技术目录相关组件
+├── pages/                # 页面组件
+│   ├── ProjectList/      # 项目清单
+│   ├── OneGenerate/      # 一键生成
+│   ├── HighlyConfig/     # 高级配置
+│   ├── KnowledgeBase/    # 知识库
+│   └── UserSetting/      # 用户设置
+├── config/
+│   └── routes.js         # 路由配置
+└── App.jsx              # 根组件
 ```
 
-### 数据结构
+### 核心特性实现
 
-章节数据结构示例：
+1. **布局组件 (Layout)**:
 
-```javascript
-{
-  id: 'chapter-1',
-  type: 'chapter', // 'chapter' | 'section' | 'subsection'
-  number: '第一章',
-  title: '章节内容概述',
-  status: 'completed', // 'completed' | 'draft' | 'error'
-  expanded: true,
-  content: '',
-  children: [
-    {
-      id: 'section-1-1',
-      type: 'section',
-      number: '第一节',
-      title: '章节内容概述',
-      status: 'completed',
-      expanded: true,
-      children: [
-        // 小节数据...
-      ]
-    }
-  ]
-}
+   - 集成 Header 和 Sidebar
+   - 根据当前路由动态更新面包屑
+   - 使用 react-router-dom 的`<Outlet>`渲染子路由
+
+2. **路由配置**:
+
+   - 统一路由常量管理
+   - 路由与菜单项映射关系
+   - 面包屑文本配置
+
+3. **导航系统**:
+   - Sidebar 使用`<Link>`组件实现无刷新跳转
+   - 基于`useLocation`的路由状态管理
+   - 自动激活当前页面菜单项
+
+## 🚀 开发和运行
+
+### 安装依赖
+
+```bash
+npm install
 ```
 
-## 依赖的资源文件
+### 启动开发服务器
 
-确保以下图标文件位于 `src/assets/` 目录下：
+```bash
+npm run dev
+```
 
-- `breadcrumb-icon.svg` - 面包屑图标
-- `config-icon.svg` - 配置图标
-- `dropdown-arrow.svg` - 下拉箭头
-- `generate-icon.svg` - 生成图标
-- `knowledge-icon.svg` - 知识库图标
-- `project-list-icon.svg` - 项目列表图标
-- `settings-icon.svg` - 设置图标
-- `user-avatar.png` - 用户头像
+### 构建生产版本
 
-## 特性说明
+```bash
+npm run build
+```
 
-### 章节操作
+## 🎯 设计规范
 
-- **点击章节描述**：激活/选中章节
-- **点击章节/节标题**：展开/折叠子章节
-- **右键更多选项**：显示上下文菜单
+- **色彩方案**: 主色调 #2563eb（蓝色）
+- **布局**: Fixed Header + Sidebar + 动态主内容区
+- **字体**: 系统默认字体栈
+- **响应式**: 支持桌面端和移动端
+- **交互**: 悬停效果、过渡动画、加载状态
 
-### 数据持久化
+## 📱 响应式设计
 
-- 章节内容自动保存到 localStorage
-- 支持草稿和正式版本分别保存
-- 页面刷新后内容不丢失
-
-### 编写界面
-
-- 富文本编辑器
-- 支持基本格式化（粗体、斜体、下划线、列表）
-- 实时内容保存
-- 未保存提醒
-
-## 样式定制
-
-组件使用独立的 CSS 文件，可以通过修改 `TechnicalCatalog.css` 来自定义样式。主要颜色变量：
-
-- 主色调：`#2563eb`
-- 背景色：`#e0ebff`
-- 文字颜色：`#000000`
-- 辅助文字：`#8e93a6`
-
-## 注意事项
-
-1. 组件需要完整的视口尺寸（100vw × 100vh）
-2. 确保所有图标文件都正确放置
-3. 建议在 App.css 中设置根元素样式
-4. 组件内部使用 localStorage 进行数据持久化
+- **桌面端**: 完整的两栏布局（Sidebar + 主内容）
+- **平板端**: 优化的布局间距
+- **移动端**: Sidebar 收起，主内容全屏显示

@@ -4,7 +4,28 @@ import breadcrumbIcon from "../../../assets/breadcrumb-icon.svg";
 import userAvatar from "../../../assets/user-avatar.png";
 import dropdownArrow from "../../../assets/dropdown-arrow.svg";
 
-const Header = () => {
+/**
+ * Header组件 - 顶部导航栏
+ * @param {string} breadcrumbText - 面包屑导航文本，格式："工作台 / 页面名称"
+ */
+const Header = ({ breadcrumbText = "工作台" }) => {
+  // 解析面包屑文本，将最后一部分高亮显示
+  const renderBreadcrumb = () => {
+    if (breadcrumbText.includes(" / ")) {
+      const parts = breadcrumbText.split(" / ");
+      const lastPart = parts[parts.length - 1];
+      const previousParts = parts.slice(0, -1).join(" / ");
+
+      return (
+        <span>
+          {previousParts} / <span className="highlight">{lastPart}</span>
+        </span>
+      );
+    }
+
+    return <span className="highlight">{breadcrumbText}</span>;
+  };
+
   return (
     <header className="header">
       <div className="logo">LOGO</div>
@@ -12,9 +33,7 @@ const Header = () => {
         <div className="breadcrumb-icon">
           <img src={breadcrumbIcon} alt="导航图标" />
         </div>
-        <span>
-          工作台 / <span className="highlight">高级配置</span>
-        </span>
+        {renderBreadcrumb()}
       </div>
       <div className="user-info">
         <div className="user-avatar">

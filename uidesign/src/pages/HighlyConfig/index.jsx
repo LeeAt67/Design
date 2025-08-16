@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import StepsIndicator from "../../components/TechnicalCatalog/StepsIndicator";
+import ContentBox from "../../components/TechnicalCatalog/ContentBox";
+import ContextMenu from "../../components/TechnicalCatalog/ContextMenu";
+import ChapterSelectionModal from "../../components/TechnicalCatalog/ChapterSelectionModal";
+import WritingModal from "../../components/TechnicalCatalog/WritingModal";
 import "./index.css";
-import Header from "../Header";
-import Sidebar from "../Sidebar";
-import StepsIndicator from "../StepsIndicator";
-import ContentBox from "../ContentBox";
-import ContextMenu from "../ContextMenu";
-import ChapterSelectionModal from "../ChapterSelectionModal";
-import WritingModal from "../WritingModal";
 
-const TechnicalCatalog = () => {
+/**
+ * 高级配置页面
+ * 包含技术目录的主要内容，但使用共享的Header和Sidebar
+ */
+const HighlyConfig = () => {
   const [activeTab, setActiveTab] = useState("技术标目录");
   const [activeChapter, setActiveChapter] = useState(null);
-  const [activeSidebarItem, setActiveSidebarItem] = useState("高级配置");
   const [contextMenuVisible, setContextMenuVisible] = useState(false);
   const [contextMenuPosition, setContextMenuPosition] = useState({
     x: 0,
@@ -128,13 +129,6 @@ const TechnicalCatalog = () => {
     }
   }, [chapters, activeChapter]);
 
-  // 处理侧边栏项目点击
-  const handleSidebarItemClick = (item) => {
-    setActiveSidebarItem(item.label);
-    console.log(`点击了侧边栏项目: ${item.label}`, item);
-    // 在这里可以添加更多的逻辑，比如路由跳转等
-  };
-
   // 处理章节点击
   const handleChapterClick = (chapterId) => {
     setActiveChapter(chapterId);
@@ -201,7 +195,7 @@ const TechnicalCatalog = () => {
           } else if (chapter.type === "subsection") {
             newType = "item";
           } else {
-            newType = "item"; // 默认为item
+            newType = "item";
           }
 
           const newSubChapter = {
@@ -229,16 +223,7 @@ const TechnicalCatalog = () => {
   // 生成章节编号
   const generateChapterNumber = (parentChapter) => {
     const chineseNumbers = [
-      "一",
-      "二",
-      "三",
-      "四",
-      "五",
-      "六",
-      "七",
-      "八",
-      "九",
-      "十",
+      "一", "二", "三", "四", "五", "六", "七", "八", "九", "十",
     ];
     if (parentChapter.type === "chapter") {
       const count = parentChapter.children ? parentChapter.children.length : 0;
@@ -326,25 +311,18 @@ const TechnicalCatalog = () => {
   }, [contextMenuVisible]);
 
   return (
-    <div className="container">
-      <Header />
-      <Sidebar
-        activeItem={activeSidebarItem}
-        onItemClick={handleSidebarItemClick}
+    <div className="highly-config-container">
+      <StepsIndicator activeStep={3} />
+      <ContentBox
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        chapters={chapters}
+        activeChapter={activeChapter}
+        onChapterClick={handleChapterClick}
+        onMoreOptions={handleMoreOptions}
+        onToggleExpand={toggleChapterExpand}
+        onWriteChapter={handleWriteChapter}
       />
-      <main className="main-content">
-        <StepsIndicator activeStep={3} />
-        <ContentBox
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          chapters={chapters}
-          activeChapter={activeChapter}
-          onChapterClick={handleChapterClick}
-          onMoreOptions={handleMoreOptions}
-          onToggleExpand={toggleChapterExpand}
-          onWriteChapter={handleWriteChapter}
-        />
-      </main>
 
       {contextMenuVisible && (
         <ContextMenu
@@ -381,4 +359,4 @@ const TechnicalCatalog = () => {
   );
 };
 
-export default TechnicalCatalog;
+export default HighlyConfig;

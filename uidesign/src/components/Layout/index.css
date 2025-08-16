@@ -1,0 +1,37 @@
+/* 主布局样式 - 垂直布局：header在上，body在下 */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+/* 下方内容区域 - 水平布局：sidebar在左，main-content在右 */
+.layout-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* 主内容区域样式 - 占据剩余空间 */
+.layout-main-content {
+  flex: 1;
+  padding: 24px; /* 内容区域内边距24px */
+  background-color: #f5f5f5;
+  overflow-y: auto;
+  margin-left: 24px; /* 距离sidebar右侧24px */
+  margin-top: 24px; /* 距离header下方24px */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .layout-body {
+    flex-direction: column;
+  }
+
+  .layout-main-content {
+    margin-left: 0;
+    margin-top: 12px; /* 移动端减少间距 */
+    padding: 15px;
+  }
+}

@@ -1,0 +1,15 @@
+/* 高级配置页面样式 */
+.highly-config-container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 60px - 40px); /* 减去header高度和padding */
+}
+
+/* 确保容器内的组件正常显示 */
+.highly-config-container > * {
+  margin-bottom: 20px;
+}
+
+.highly-config-container > *:last-child {
+  margin-bottom: 0;
+}

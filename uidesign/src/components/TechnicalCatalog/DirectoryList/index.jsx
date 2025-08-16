@@ -21,6 +21,8 @@ const DirectoryList = ({
           return "section-item";
         case "subsection":
           return "subsection-item";
+        case "item":
+          return "item-item";
         default:
           return "chapter-item";
       }
@@ -34,6 +36,8 @@ const DirectoryList = ({
           return "section-title";
         case "subsection":
           return "subsection-title";
+        case "item":
+          return "item-title";
         default:
           return "chapter-title";
       }
@@ -47,6 +51,8 @@ const DirectoryList = ({
           return "section-number";
         case "subsection":
           return "subsection-number";
+        case "item":
+          return "item-number";
         default:
           return "chapter-number";
       }
@@ -60,6 +66,8 @@ const DirectoryList = ({
           return "section-desc";
         case "subsection":
           return "subsection-desc";
+        case "item":
+          return "item-desc";
         default:
           return "chapter-desc";
       }
@@ -139,7 +147,15 @@ const DirectoryList = ({
 
         {/* 渲染子章节 */}
         {hasChildren && isExpanded && (
-          <div className={chapter.type === "section" ? "subsection-list" : ""}>
+          <div
+            className={
+              chapter.type === "section"
+                ? "subsection-list"
+                : chapter.type === "subsection"
+                ? "item-list"
+                : ""
+            }
+          >
             {chapter.children.map((child) => renderChapter(child, level + 1))}
           </div>
         )}

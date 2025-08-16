@@ -19,7 +19,8 @@
 
 .chapter-item,
 .section-item,
-.subsection-item {
+.subsection-item,
+.item-item {
   display: flex;
   align-items: center;
   justify-content: flex-end; /* 右对齐所有元素 */
@@ -70,7 +71,8 @@
 /* 章节标题通用样式 */
 .chapter-title,
 .section-title,
-.subsection-title {
+.subsection-title,
+.item-title {
   display: flex;
   align-items: center;
   padding: 8px 10px;
@@ -103,6 +105,12 @@
   order: -1; /* 调整显示顺序 */
 }
 
+.item-title {
+  min-width: 40px; /* 四级条目标题（1、2、3）*/
+  margin-left: 12px;
+  order: -1; /* 调整显示顺序 */
+}
+
 /* 为subsection项目添加特殊样式以区分层级，但保持对齐 */
 .subsection-item {
   background-color: transparent; /* 移除背景色 */
@@ -116,7 +124,8 @@
 
 .chapter-number,
 .section-number,
-.subsection-number {
+.subsection-number,
+.item-number {
   font-size: 14px;
   font-family: "PingFang SC", sans-serif;
   font-weight: 400;
@@ -163,7 +172,8 @@
 /* 为所有desc设置居中对齐 */
 .chapter-desc,
 .section-desc,
-.subsection-desc {
+.subsection-desc,
+.item-desc {
   text-align: center; /* 文字居中对齐 */
   justify-content: center; /* flex居中对齐 */
 }
@@ -282,6 +292,10 @@
   margin-left: 0; /* 移除左边距，确保所有项目右对齐 */
 }
 
+.item-list {
+  margin-left: 0; /* 移除左边距，确保所有项目右对齐 */
+}
+
 /* 更多选项按钮 */
 .more-options {
   width: 16px;
@@ -301,7 +315,8 @@
 /* 章节项悬浮时显示more-options */
 .chapter-item:hover .more-options,
 .section-item:hover .more-options,
-.subsection-item:hover .more-options {
+.subsection-item:hover .more-options,
+.item-item:hover .more-options {
   opacity: 0.6;
 }
 

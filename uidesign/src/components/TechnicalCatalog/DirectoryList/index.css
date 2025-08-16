@@ -158,10 +158,11 @@
   transition: all 0.2s ease;
   display: flex;
   align-items: center; /* 确保文字垂直居中 */
-  text-align: right; /* 文字右对齐 */
 }
 
-/* 为subsection-desc单独设置居中对齐 */
+/* 为所有desc设置居中对齐 */
+.chapter-desc,
+.section-desc,
 .subsection-desc {
   text-align: center; /* 文字居中对齐 */
   justify-content: center; /* flex居中对齐 */

@@ -161,6 +161,12 @@
   text-align: right; /* 文字右对齐 */
 }
 
+/* 为subsection-desc单独设置居中对齐 */
+.subsection-desc {
+  text-align: center; /* 文字居中对齐 */
+  justify-content: center; /* flex居中对齐 */
+}
+
 /* 章节描述悬浮效果 - 已禁用 */
 /*
 .chapter-desc:hover,

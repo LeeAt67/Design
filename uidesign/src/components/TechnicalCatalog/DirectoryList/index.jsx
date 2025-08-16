@@ -69,11 +69,6 @@ const DirectoryList = ({
       <React.Fragment key={chapter.id}>
         <div
           className={`${getItemClass()} ${isActive ? "active-chapter" : ""}`}
-          style={
-            chapter.type === "subsection" && level > 0
-              ? { marginLeft: "0px" }
-              : {}
-          }
         >
           <div
             className={getTitleClass()}

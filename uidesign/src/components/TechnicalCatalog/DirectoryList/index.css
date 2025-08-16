@@ -101,6 +101,15 @@
   order: -1; /* 调整显示顺序 */
 }
 
+/* 为subsection项目添加特殊样式以区分层级，但保持对齐 */
+.subsection-item {
+  background-color: #fafbfc; /* 轻微的背景色区分 */
+}
+
+.subsection-item.active-chapter {
+  background-color: #e0f2fe; /* 保持激活状态样式 */
+}
+
 .chapter-number,
 .section-number,
 .subsection-number {
@@ -261,7 +270,7 @@
 }
 
 .subsection-list {
-  margin-left: 20px;
+  margin-left: 0; /* 移除左边距，确保所有项目右对齐 */
 }
 
 /* 更多选项按钮 */

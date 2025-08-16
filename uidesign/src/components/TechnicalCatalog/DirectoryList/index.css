@@ -105,7 +105,7 @@
 
 /* 为subsection项目添加特殊样式以区分层级，但保持对齐 */
 .subsection-item {
-  background-color: #fafbfc; /* 轻微的背景色区分 */
+  background-color: transparent; /* 移除背景色 */
 }
 
 /*

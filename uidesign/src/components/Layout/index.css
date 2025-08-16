@@ -17,7 +17,7 @@
 .layout-main-content {
   flex: 1;
   padding: 24px; /* 内容区域内边距24px */
-  background-color: #f5f5f5;
+  background-color: #e0ebff;
   overflow-y: auto;
   margin-left: 24px; /* 距离sidebar右侧24px */
   margin-top: 24px; /* 距离header下方24px */

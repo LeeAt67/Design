@@ -58,12 +58,14 @@
 }
 */
 
-/* 悬浮效果 */
+/* 悬浮效果 - 已禁用 */
+/*
 .chapter-item:hover,
 .section-item:hover,
 .subsection-item:hover {
   background-color: #f8fafc;
 }
+*/
 
 /* 章节标题通用样式 */
 .chapter-title,
@@ -159,12 +161,14 @@
   text-align: right; /* 文字右对齐 */
 }
 
-/* 章节描述悬浮效果 */
+/* 章节描述悬浮效果 - 已禁用 */
+/*
 .chapter-desc:hover,
 .section-desc:hover,
 .subsection-desc:hover {
   background-color: rgba(37, 99, 235, 0.1);
 }
+*/
 
 /* 章节内容预览样式 */
 .chapter-content-preview {
@@ -189,11 +193,13 @@
   margin: 8px 0 4px 0;
 }
 
+/*
 .chapter-content-preview:hover {
   background-color: #e0f2fe;
   border-color: #2563eb;
   color: #1e40af;
 }
+*/
 
 /* 激活状态下的内容预览样式 - 已禁用 */
 /*
@@ -277,25 +283,28 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  opacity: 0.6; /* 设置为可见状态 */
   margin-left: 10px;
   position: relative;
   z-index: 1;
   flex-shrink: 0; /* 防止收缩 */
 }
 
-/* 章节项悬浮时显示more-options */
+/* 章节项悬浮时显示more-options - 已禁用 */
+/*
 .chapter-item:hover .more-options,
 .section-item:hover .more-options,
 .subsection-item:hover .more-options {
   opacity: 0.6;
 }
+*/
 
-/* 悬浮在more-options自身时完全显示 */
+/* 悬浮在more-options自身时完全显示 - 已禁用 */
+/*
 .more-options:hover {
   opacity: 1 !important;
 }
+*/
 
 /* 激活状态时保持可见 - 已禁用 */
 /*

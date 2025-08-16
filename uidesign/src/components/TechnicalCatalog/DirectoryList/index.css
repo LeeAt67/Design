@@ -289,28 +289,25 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: 0.6; /* 设置为可见状态 */
+  opacity: 0; /* 默认隐藏 */
+  transition: opacity 0.2s ease; /* 添加过渡效果 */
   margin-left: 10px;
   position: relative;
   z-index: 1;
   flex-shrink: 0; /* 防止收缩 */
 }
 
-/* 章节项悬浮时显示more-options - 已禁用 */
-/*
+/* 章节项悬浮时显示more-options */
 .chapter-item:hover .more-options,
 .section-item:hover .more-options,
 .subsection-item:hover .more-options {
   opacity: 0.6;
 }
-*/
 
-/* 悬浮在more-options自身时完全显示 - 已禁用 */
-/*
+/* 悬浮在more-options自身时完全显示 */
 .more-options:hover {
   opacity: 1 !important;
 }
-*/
 
 /* 激活状态时保持可见 - 已禁用 */
 /*

@@ -1,0 +1,54 @@
+/* Sidebar组件样式 */
+.sidebar {
+  grid-area: sidebar;
+  background-color: #ffffff;
+  padding-top: 10px;
+  min-height: calc(100vh - 70px); /* 至少100vh减去header高度 */
+  min-width: 208px;
+  overflow: hidden;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px 12px 28px;
+  margin: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #8e93a6;
+}
+
+.sidebar-item.active {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.sidebar-item.highlight {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.sidebar-item:hover:not(.highlight) {
+  background-color: #f1f5f9;
+  color: #475569;
+  transition: all 0.2s ease;
+}
+
+.sidebar-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sidebar-item.highlight .sidebar-icon img {
+  filter: brightness(0) invert(1);
+}

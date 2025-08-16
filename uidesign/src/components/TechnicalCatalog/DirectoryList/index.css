@@ -1,0 +1,305 @@
+/* DirectoryList组件样式 */
+.directory-list {
+  padding: 20px 24px;
+  position: relative;
+  flex: 0.3575;
+  min-height: 400px;
+  max-height: calc(79.33vh - 120px); /* 减去标签页和表头的高度 */
+  overflow-y: auto; /* 允许垂直滚动 */
+  overflow-x: hidden; /* 只禁用水平滚动 */
+  scrollbar-width: none; /* Firefox 隐藏滚动条 */
+  -ms-overflow-style: none; /* IE/Edge 隐藏滚动条 */
+  min-width: 300px;
+}
+
+/* Webkit浏览器隐藏滚动条 */
+.directory-list::-webkit-scrollbar {
+  display: none;
+}
+
+.chapter-item,
+.section-item,
+.subsection-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* 右对齐所有元素 */
+  margin-bottom: 16px;
+  position: relative;
+  height: 40px; /* 固定高度确保所有元素对齐 */
+  box-sizing: border-box;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  padding: 0 8px; /* 统一内边距 */
+}
+
+/* 激活状态样式 */
+.chapter-item.active-chapter,
+.section-item.active-chapter,
+.subsection-item.active-chapter {
+  background-color: #e0f2fe;
+  border: 1px solid #2563eb;
+}
+
+/* 激活状态下的描述文字颜色 */
+.chapter-item.active-chapter .chapter-desc,
+.section-item.active-chapter .section-desc,
+.subsection-item.active-chapter .subsection-desc {
+  color: #2563eb !important;
+  font-weight: 500;
+  background-color: transparent !important;
+}
+
+/* 激活状态下的章节编号样式 */
+.chapter-item.active-chapter .chapter-number,
+.section-item.active-chapter .section-number,
+.subsection-item.active-chapter .subsection-number {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* 悬浮效果 */
+.chapter-item:not(.active-chapter):hover,
+.section-item:not(.active-chapter):hover,
+.subsection-item:not(.active-chapter):hover {
+  background-color: #f8fafc;
+}
+
+/* 章节标题通用样式 */
+.chapter-title,
+.section-title,
+.subsection-title {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  height: 32px; /* 固定高度，适配40px容器 */
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-shrink: 0; /* 防止收缩 */
+}
+
+/* 不同层级的章节标题宽度和边距 */
+.chapter-title {
+  min-width: 90px; /* 主章节标题（第一章、第二章）*/
+  margin-left: 12px;
+  order: -1; /* 调整显示顺序 */
+}
+
+.section-title {
+  min-width: 80px; /* 二级章节标题（第一节）*/
+  margin-left: 12px;
+  order: -1; /* 调整显示顺序 */
+}
+
+.subsection-title {
+  min-width: 50px; /* 三级章节标题（一、二、三）*/
+  margin-left: 12px;
+  order: -1; /* 调整显示顺序 */
+}
+
+.chapter-number,
+.section-number,
+.subsection-number {
+  font-size: 14px;
+  font-family: "PingFang SC", sans-serif;
+  font-weight: 400;
+  margin-right: 16px;
+}
+
+.dropdown-icon {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dropdown-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.chapter-desc,
+.section-desc,
+.subsection-desc {
+  font-size: 14px;
+  font-family: "PingFang SC", sans-serif;
+  font-weight: 400;
+  color: #000000;
+  margin-left: 12px;
+  margin-right: 12px;
+  line-height: 40px; /* 与章节项高度一致 */
+  height: 40px; /* 固定高度确保对齐 */
+  min-width: 150px;
+  max-width: 200px; /* 限制最大宽度 */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center; /* 确保文字垂直居中 */
+  text-align: right; /* 文字右对齐 */
+}
+
+/* 章节描述悬浮效果 */
+.chapter-desc:hover,
+.section-desc:hover,
+.subsection-desc:hover {
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* 章节内容预览样式 */
+.chapter-content-preview {
+  font-size: 12px;
+  color: #6b7280;
+  background-color: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 4px 8px;
+  line-height: 1.4;
+  display: none;
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "PingFang SC", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  order: 10; /* 确保预览内容在最后显示 */
+  margin: 8px 0 4px 0;
+}
+
+.chapter-content-preview:hover {
+  background-color: #e0f2fe;
+  border-color: #2563eb;
+  color: #1e40af;
+}
+
+/* 激活状态下的内容预览样式 */
+.chapter-item.active-chapter .chapter-content-preview,
+.section-item.active-chapter .chapter-content-preview,
+.subsection-item.active-chapter .chapter-content-preview {
+  background-color: #dbeafe;
+  border-color: #3b82f6;
+  color: #1e40af;
+}
+
+.status-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* 防止收缩 */
+}
+
+.status-icon.completed {
+  background-color: #6ac676;
+}
+
+.status-icon.completed::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 8px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.25 3.94L5.25 6.94L9.75 2.44" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.status-icon.error {
+  background-color: #f56868;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.67px;
+  color: white;
+  font-weight: bold;
+}
+
+.status-icon.draft {
+  background-color: #fbbf24;
+}
+
+.error-count {
+  font-size: 10px;
+  color: #f56868;
+  margin-left: 10px;
+  font-family: "PingFang SC", sans-serif;
+  flex-shrink: 0; /* 防止收缩 */
+  line-height: 40px; /* 与容器高度一致 */
+  display: flex;
+  align-items: center; /* 垂直居中 */
+}
+
+.error-count.clickable {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  opacity: 0.8;
+}
+
+.error-count.clickable:hover {
+  opacity: 1;
+  background-color: rgba(245, 104, 104, 0.1);
+  color: #d53f3f;
+}
+
+.subsection-list {
+  margin-left: 20px;
+}
+
+/* 更多选项按钮 */
+.more-options {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  margin-left: 10px;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0; /* 防止收缩 */
+}
+
+/* 章节项悬浮时显示more-options */
+.chapter-item:hover .more-options,
+.section-item:hover .more-options,
+.subsection-item:hover .more-options {
+  opacity: 0.6;
+}
+
+/* 悬浮在more-options自身时完全显示 */
+.more-options:hover {
+  opacity: 1 !important;
+}
+
+/* 激活状态时保持可见 */
+.chapter-item.active-chapter .more-options,
+.section-item.active-chapter .more-options,
+.subsection-item.active-chapter .more-options {
+  opacity: 0.6;
+}
+
+.more-options svg {
+  width: 12px;
+  height: 4px;
+}

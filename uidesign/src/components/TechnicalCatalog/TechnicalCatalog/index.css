@@ -1,0 +1,89 @@
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+html {
+  background-color: #e0ebff;
+  height: 100%;
+}
+
+body {
+  background-color: #e0ebff;
+  color: #000000;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* 主容器布局 */
+.container {
+  display: grid;
+  grid-template-columns: 208px 1fr;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #e0ebff;
+}
+
+/* 主要内容区域 */
+.main-content {
+  grid-area: main;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 响应式设计 - 设置最小宽度，当宽度不足时内容会被隐藏 */
+.sidebar {
+  min-width: 208px;
+  overflow: hidden;
+}
+
+.content-area {
+  min-width: 500px;
+  overflow: hidden;
+}
+
+/* 通用状态图标样式扩展 */
+.status-icon.draft {
+  background-color: #fbbf24;
+}
+
+/* 保存消息动画 */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10%,
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.save-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #10b981;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  z-index: 3000;
+  animation: fadeInOut 3s ease-in-out;
+}

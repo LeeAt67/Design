@@ -1,0 +1,182 @@
+/* ContentBox组件样式 */
+.content-box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 79.33vh; /* 714px/900*100 ≈ 79.33vh */
+}
+
+/* 标签页 */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #f2f2f2;
+  position: relative;
+  padding: 24px;
+}
+
+.tab {
+  margin-right: 24px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  font-family: "PingFang SC", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+}
+
+.tab.active {
+  color: #2563eb;
+  position: relative;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+}
+
+.one-click-btn {
+  position: absolute;
+  right: 0.83vw; /* 12px/1440*100 ≈ 0.83vw */
+  color: #2563eb;
+  cursor: pointer;
+  font-family: "PingFang SC", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* 表头 */
+.table-header {
+  display: flex;
+  padding: 15px 24px;
+  border-bottom: 1px solid #f2f2f2;
+  color: #8e93a6;
+  align-items: center;
+}
+
+.header-item {
+  margin-right: 40px;
+  font-family: "PingFang SC", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  color: #8e93a6;
+  display: flex;
+  align-items: center;
+}
+
+.header-item:first-child,
+.header-item:last-child {
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.header-item:first-child:hover,
+.header-item:last-child:hover {
+  background-color: #f0f7ff;
+}
+
+/* 内容区域 */
+.content-area {
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-width: 500px;
+  overflow: hidden;
+}
+
+/* 未编写章节 */
+.empty-chapter {
+  flex: 1;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-chapter h3 {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  font-family: "PingFang SC", sans-serif;
+  color: #000000;
+}
+
+.empty-chapter p {
+  font-size: 12px;
+  color: #8e93a6;
+  margin-bottom: 30px;
+  font-family: "PingFang SC", sans-serif;
+  font-weight: 400;
+}
+
+.write-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  margin: 120px 380px;
+  border-radius: 2px;
+  font-size: 20px;
+  font-family: "PingFang SC", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* 分隔线 */
+.divider {
+  height: 1px;
+  background-color: #f2f2f2;
+  margin: 0 24px;
+}
+
+/* 底部按钮 */
+.footer-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  border-top: 2px solid #f2f2f2;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #ffffff;
+}
+
+.prev-btn,
+.next-btn {
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-family: "PingFang SC", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  margin-left: 20px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prev-btn {
+  background-color: #f2f2f2;
+  color: #8e93a6;
+}
+
+.next-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+}

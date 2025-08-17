@@ -223,7 +223,16 @@ const HighlyConfig = () => {
   // 生成章节编号
   const generateChapterNumber = (parentChapter) => {
     const chineseNumbers = [
-      "一", "二", "三", "四", "五", "六", "七", "八", "九", "十",
+      "一",
+      "二",
+      "三",
+      "四",
+      "五",
+      "六",
+      "七",
+      "八",
+      "九",
+      "十",
     ];
     if (parentChapter.type === "chapter") {
       const count = parentChapter.children ? parentChapter.children.length : 0;

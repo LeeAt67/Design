@@ -1,15 +1,18 @@
 /* DirectoryList组件样式 */
 .directory-list {
-  padding: 20px 24px;
   position: relative;
+  padding-bottom: 12px;
   flex: 0.3575;
-  min-height: 400px;
+  min-height: 375px;
   max-height: calc(79.33vh - 120px); /* 减去标签页和表头的高度 */
   overflow-y: auto; /* 允许垂直滚动 */
   overflow-x: hidden; /* 只禁用水平滚动 */
   scrollbar-width: none; /* Firefox 隐藏滚动条 */
   -ms-overflow-style: none; /* IE/Edge 隐藏滚动条 */
   min-width: 300px;
+  border: 2px solid #f2f2f2;
+  border-top: none;
+  border-left: none;
 }
 
 /* Webkit浏览器隐藏滚动条 */
@@ -24,49 +27,14 @@
   display: flex;
   align-items: center;
   justify-content: flex-end; /* 右对齐所有元素 */
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   position: relative;
   height: 40px; /* 固定高度确保所有元素对齐 */
   box-sizing: border-box;
   border-radius: 6px;
-  transition: background-color 0.2s ease;
   cursor: pointer;
-  padding: 0 8px; /* 统一内边距 */
+  transform: translateX(-16px); /* 整体左移16px */
 }
-
-/* 激活状态样式 - 已禁用 */
-/*
-.chapter-item.active-chapter,
-.section-item.active-chapter,
-.subsection-item.active-chapter {
-  background-color: #e0f2fe;
-  border: 1px solid #2563eb;
-}
-
-.chapter-item.active-chapter .chapter-desc,
-.section-item.active-chapter .section-desc,
-.subsection-item.active-chapter .subsection-desc {
-  color: #2563eb !important;
-  font-weight: 500;
-  background-color: transparent !important;
-}
-
-.chapter-item.active-chapter .chapter-number,
-.section-item.active-chapter .section-number,
-.subsection-item.active-chapter .subsection-number {
-  color: #2563eb;
-  font-weight: 500;
-}
-*/
-
-/* 悬浮效果 - 已禁用 */
-/*
-.chapter-item:hover,
-.section-item:hover,
-.subsection-item:hover {
-  background-color: #f8fafc;
-}
-*/
 
 /* 章节标题通用样式 */
 .chapter-title,
@@ -89,25 +57,25 @@
 /* 不同层级的章节标题宽度和边距 */
 .chapter-title {
   min-width: 90px; /* 主章节标题（第一章、第二章）*/
-  margin-left: 12px;
+
   order: -1; /* 调整显示顺序 */
 }
 
 .section-title {
   min-width: 80px; /* 二级章节标题（第一节）*/
-  margin-left: 12px;
+
   order: -1; /* 调整显示顺序 */
 }
 
 .subsection-title {
   min-width: 50px; /* 三级章节标题（一、二、三）*/
-  margin-left: 12px;
+
   order: -1; /* 调整显示顺序 */
 }
 
 .item-title {
   min-width: 40px; /* 四级条目标题（1、2、3）*/
-  margin-left: 12px;
+
   order: -1; /* 调整显示顺序 */
 }
 
@@ -153,11 +121,8 @@
   font-family: "PingFang SC", sans-serif;
   font-weight: 400;
   color: #000000;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 24px;
   line-height: 40px; /* 与章节项高度一致 */
-  height: 40px; /* 固定高度确保对齐 */
-  min-width: 150px;
   max-width: 200px; /* 限制最大宽度 */
   overflow: hidden;
   white-space: nowrap;
@@ -177,15 +142,6 @@
   text-align: center; /* 文字居中对齐 */
   justify-content: center; /* flex居中对齐 */
 }
-
-/* 章节描述悬浮效果 - 已禁用 */
-/*
-.chapter-desc:hover,
-.section-desc:hover,
-.subsection-desc:hover {
-  background-color: rgba(37, 99, 235, 0.1);
-}
-*/
 
 /* 章节内容预览样式 */
 .chapter-content-preview {
@@ -209,25 +165,6 @@
   order: 10; /* 确保预览内容在最后显示 */
   margin: 8px 0 4px 0;
 }
-
-/*
-.chapter-content-preview:hover {
-  background-color: #e0f2fe;
-  border-color: #2563eb;
-  color: #1e40af;
-}
-*/
-
-/* 激活状态下的内容预览样式 - 已禁用 */
-/*
-.chapter-item.active-chapter .chapter-content-preview,
-.section-item.active-chapter .chapter-content-preview,
-.subsection-item.active-chapter .chapter-content-preview {
-  background-color: #dbeafe;
-  border-color: #3b82f6;
-  color: #1e40af;
-}
-*/
 
 .status-icon {
   width: 16px;
@@ -272,20 +209,21 @@
 }
 
 .error-count {
-  font-size: 10px;
+  width: 18px;
+  height: 16px;
+  font-size: 10.67px;
   color: #f56868;
   margin-left: 10px;
   font-family: "PingFang SC", sans-serif;
   flex-shrink: 0; /* 防止收缩 */
-  line-height: 40px; /* 与容器高度一致 */
+
   display: flex;
   align-items: center; /* 垂直居中 */
 }
 
 .error-count.clickable {
   cursor: pointer;
-  padding: 4px 4px 4px 4px; /* 上 右 下 左，左边距设为4px */
-  margin-left: 0; /* 设置为0 */
+  margin-left: 10px;
 }
 
 .subsection-list {
@@ -306,7 +244,7 @@
   cursor: pointer;
   opacity: 0; /* 默认隐藏 */
   transition: opacity 0.2s ease; /* 添加过渡效果 */
-  margin-left: 10px;
+  margin-left: 12px;
   position: relative;
   z-index: 1;
   flex-shrink: 0; /* 防止收缩 */

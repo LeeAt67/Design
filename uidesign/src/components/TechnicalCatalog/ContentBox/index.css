@@ -16,12 +16,11 @@
   display: flex;
   border-bottom: 2px solid #f2f2f2;
   position: relative;
-  padding: 24px;
+  padding: 16px 24px;
 }
 
 .tab {
-  margin-right: 24px;
-  padding-bottom: 10px;
+  margin-right: 16px;
   cursor: pointer;
   font-family: "PingFang SC", sans-serif;
   font-weight: 400;
@@ -57,14 +56,13 @@
 /* 表头 */
 .table-header {
   display: flex;
-  padding: 15px 24px;
-  border-bottom: 1px solid #f2f2f2;
+  padding: 12px 24px;
   color: #8e93a6;
   align-items: center;
 }
 
 .header-item {
-  margin-right: 40px;
+  margin-right: 16px;
   font-family: "PingFang SC", sans-serif;
   font-weight: 400;
   font-size: 16px;

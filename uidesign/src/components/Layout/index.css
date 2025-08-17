@@ -16,7 +16,6 @@
 /* 主内容区域样式 - 占据剩余空间 */
 .layout-main-content {
   flex: 1;
-  padding: 24px; /* 内容区域内边距24px */
   background-color: #e0ebff;
   overflow-y: auto;
   margin-left: 24px; /* 距离sidebar右侧24px */

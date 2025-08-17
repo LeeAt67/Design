@@ -1,7 +1,7 @@
 /* 高级配置页面样式 */
 .highly-config-container {
-  width: 1196px;
-  height: 801px;
+  width: 100%;
+  height: 100%;
   background-color: #e0ebff;
   min-height: calc(100vh - 60px - 40px); /* 减去header高度和padding */
 }

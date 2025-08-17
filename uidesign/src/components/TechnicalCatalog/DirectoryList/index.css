@@ -10,9 +10,7 @@
   scrollbar-width: none; /* Firefox 隐藏滚动条 */
   -ms-overflow-style: none; /* IE/Edge 隐藏滚动条 */
   min-width: 300px;
-  border: 2px solid #f2f2f2;
-  border-top: none;
-  border-left: none;
+  border-right: 2px solid #f2f2f2;
 }
 
 /* Webkit浏览器隐藏滚动条 */
